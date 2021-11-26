@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float maxSpeed = 0.05f;
-    public float strafeSpeed = 1.0f;
+    float forwardSpeed;
+    public float normalSpeed = 0.01f;
+    public float sprintSpeed = 0.02f;
+    public float strafeSpeed = 0.006f;
+
     float rotation = 0.0f;
     float camRotation = 0.0f;
     public float rotationSpeed = 2.0f;
@@ -36,7 +39,16 @@ public class PlayerController : MonoBehaviour
             myRigidbody.AddForce(transform.up * jumpForce);
         }
 
-        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * maxSpeed);
+        if (isOnGround && Input.GetKey(KeyCode.LeftShift))
+        {
+            forwardSpeed = sprintSpeed;
+        }
+        else
+        {
+            forwardSpeed = normalSpeed;
+        }
+
+        transform.position = transform.position + (transform.forward * Input.GetAxis("Vertical") * forwardSpeed);
         transform.position = transform.position + (transform.right * Input.GetAxis("Horizontal") * strafeSpeed);
 
         rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
