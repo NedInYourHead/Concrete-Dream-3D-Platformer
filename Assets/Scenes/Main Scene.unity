@@ -551,6 +551,7 @@ MonoBehaviour:
   myStartPoint: {fileID: 304404151}
   myEndPoint: {fileID: 944699104}
   speed: 0.02
+  isActive: 0
 --- !u!4 &286762731
 Transform:
   m_ObjectHideFlags: 0
@@ -2625,15 +2626,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4d33fe83dbe904cb07287e084d1e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSpeed: 0.01
-  sprintSpeed: 0.02
-  strafeSpeed: 0.006
+  normalSpeed: 0.025
+  sprintSpeed: 0.045
+  strafeSpeed: 0.015
   rotationSpeed: 2
   groundChecker: {fileID: 344412644}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  jumpForce: 1500
+  jumpForce: 1000
 --- !u!136 &1546091399
 CapsuleCollider:
   m_ObjectHideFlags: 0

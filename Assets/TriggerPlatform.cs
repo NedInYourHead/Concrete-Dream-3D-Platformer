@@ -10,7 +10,7 @@ public class TriggerPlatform : MonoBehaviour
 
     public float speed = 0.1f;
 
-    bool isActivated = false;
+    public bool isActive = false;
     void Start()
     {
         myPlatform.position = myStartPoint.position;
@@ -20,24 +20,19 @@ public class TriggerPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isActivated == true)
+        if (isActive == true)
         {
             myPlatform.position = Vector3.MoveTowards(myPlatform.position, myEndPoint.position, speed);
 
             if (myPlatform.position == myEndPoint.position)
             {
 
-                isActivated = false;
+                isActive = false;
             }
         }
         else
         {
             myPlatform.position = Vector3.MoveTowards(myPlatform.position, myStartPoint.position, speed);
-            
-            if (myPlatform.position == myStartPoint.position)
-            {
-                isActivated = false;
-            }
         }
     }
 }
